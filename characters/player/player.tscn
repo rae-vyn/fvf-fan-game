@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://doy86y01irlyi"]
+[gd_scene load_steps=4 format=3 uid="uid://doy86y01irlyi"]
 
 [ext_resource type="Script" uid="uid://b5xqoe1mrpfhr" path="res://characters/player/player.gd" id="1_508ok"]
-[ext_resource type="Script" uid="uid://b4s8wf5vdjnav" path="res://characters/player/vision.gd" id="2_xxgcw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xxgcw"]
 
@@ -21,4 +20,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.383133, 0.0127552)
 
 [node name="Vision" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0510134, -0.549844)
-script = ExtResource("2_xxgcw")
