@@ -1,22 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://doy86y01irlyi"]
+[gd_scene load_steps=5 format=3 uid="uid://doy86y01irlyi"]
 
 [ext_resource type="Script" uid="uid://b5xqoe1mrpfhr" path="res://characters/player/player.gd" id="1_508ok"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xxgcw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_508ok"]
+height = 1.5
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_508ok"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_508ok")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="StandingShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_xxgcw")
+debug_color = Color(0.227451, 0.509804, 1, 0.713726)
+
+[node name="CrouchingShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CapsuleShape3D_508ok")
+debug_color = Color(0.227451, 0.509804, 1, 0.713726)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_508ok")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.383133, 0.0127552)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 
 [node name="Vision" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0510134, -0.549844)
+
+[node name="StandingCast" type="RayCast3D" parent="."]
+target_position = Vector3(0, 2, 0)

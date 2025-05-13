@@ -21,15 +21,42 @@ uv1_triplanar = true
 [node name="TestingGrounds" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_1rui0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63161, 0)
 
 [node name="env" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
 environment = SubResource("Environment_8b5v7")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 size = Vector3(50, 1, 50)
 material = SubResource("StandardMaterial3D_7u2h7")
+
+[node name="Floor2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 15.557)
+use_collision = true
+size = Vector3(5, 1, 5)
+material = SubResource("StandardMaterial3D_7u2h7")
+
+[node name="HeadHeight" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.296, 2.3, 8.946)
+use_collision = true
+size = Vector3(5, 1, 5)
+material = SubResource("StandardMaterial3D_7u2h7")
+
+[node name="Label3D" type="Label3D" parent="HeadHeight"]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -2.6, 0, 0)
+text = "HEAD HEIGHT
+(1.8 METERS)"
+
+[node name="MaxJumpHeight" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0)
+use_collision = true
+size = Vector3(5, 2, 5)
+material = SubResource("StandardMaterial3D_7u2h7")
+
+[node name="Label3D" type="Label3D" parent="MaxJumpHeight"]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -2.6, 0, 0)
+text = "MAX JUMP HEIGHT
+(2 METERS)"
