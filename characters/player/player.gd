@@ -26,8 +26,8 @@ func _input(event):
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("crouch") and is_on_floor():
-		current_speed = crouching_speed
+	if Input.is_action_pressed("crouch"):
+		current_speed = crouching_speed if is_on_floor() else current_speed
 		head.position.y = lerp(head.position.y, 1.8 + crouching_depth, delta * lerp_speed)
 		$StandingShape.disabled = true
 		$CrouchingShape.disabled = false
