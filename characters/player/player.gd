@@ -10,10 +10,11 @@ var current_speed: float = 5.0
 @export var mouse_sens: float = 0.3
 @export var Jump_Max: int = 1
 @export var initialGravity: float = 2
-@export var Jumptime: float = 0.8
+@export var Jumptime: float = 1.5
+@onready var coyote_timer: Timer = $CoyoteTimer
 
 var Jump_amount: int = 1
-var jump_velocity: float = 7
+var jump_velocity: float = 8.5
 var lerp_speed: float = 10.0
 var direction: Vector3 = Vector3.ZERO
 
@@ -45,8 +46,10 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		if Jump_amount:
+			if coyote_timer.is_stopped():
+				coyote_timer.start(Jumptime)
 			#Makes a timer connecting to the variable to the Function
-			get_tree().create_timer(Jumptime).timeout.connect(jumptimeout)
+			
 		
 		velocity += get_gravity() * initialGravity * delta 
 	else:
@@ -56,6 +59,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and Jump_amount > 0:
 		velocity.y = jump_velocity
 		Jump_amount += -1
+		coyote_timer.stop()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
