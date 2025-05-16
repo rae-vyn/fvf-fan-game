@@ -10,7 +10,7 @@ var current_speed: float = 5.0
 @export var mouse_sens: float = 0.3
 @export var Jump_Max: int = 1
 @export var initialGravity: float = 2
-@export var Jumptime: float = 1.5
+@export var Jumptime: float = 0.2
 @onready var coyote_timer: Timer = $CoyoteTimer
 
 var Jump_amount: int = 1
