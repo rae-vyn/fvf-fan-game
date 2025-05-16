@@ -73,3 +73,4 @@ func _physics_process(delta: float) -> void:
 #Timer calls this function when its timed out
 func jumptimeout():
 	Jump_amount += -1
+	
