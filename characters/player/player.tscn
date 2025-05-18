@@ -12,6 +12,7 @@ height = 1.5
 [node name="Player" type="CharacterBody3D"]
 floor_max_angle = 1.0472
 script = ExtResource("1_508ok")
+Jump_Max = 2
 
 [node name="StandingShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -35,6 +36,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 target_position = Vector3(0, 2, 0)
 
 [node name="CoyoteTimer" type="Timer" parent="."]
-one_shot = true
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="jumptimeout"]

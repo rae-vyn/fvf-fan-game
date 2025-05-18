@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://dj130xlamc31b"]
 
 [ext_resource type="PackedScene" uid="uid://doy86y01irlyi" path="res://characters/player/player.tscn" id="1_1rui0"]
-[ext_resource type="Texture2D" uid="uid://dnrwwre4sng4g" path="res://autumn_field_puresky_4k.exr" id="2_m117r"]
+[ext_resource type="Texture2D" uid="uid://cy7j8iyx4kj6t" path="res://textures/panorama_image.png" id="2_hv7n2"]
 [ext_resource type="Texture2D" uid="uid://khkitpekrfaq" path="res://textures/prototyping/Dark/texture_01.png" id="3_0vgqf"]
 [ext_resource type="FontFile" uid="uid://cb6mn3fqqp1bf" path="res://fonts/Friendly Fire.ttf" id="4_7u2h7"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0vgqf"]
-panorama = ExtResource("2_m117r")
+panorama = ExtResource("2_hv7n2")
 
 [sub_resource type="Sky" id="Sky_7u2h7"]
 sky_material = SubResource("PanoramaSkyMaterial_0vgqf")
@@ -22,11 +22,15 @@ uv1_triplanar = true
 [node name="TestingGrounds" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_1rui0")]
+initialGravity = 0.3
 
 [node name="env" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
 environment = SubResource("Environment_8b5v7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

@@ -11,6 +11,7 @@ var current_speed: float = 5.0
 @export var Jump_Max: int = 1
 @export var initialGravity: float = 2
 @export var Jumptime: float = 0.2
+@export var is_jumping: bool = false
 @onready var coyote_timer: Timer = $CoyoteTimer
 
 var Jump_amount: int = 1
@@ -45,21 +46,22 @@ func _physics_process(delta: float) -> void:
 			current_speed = walking_speed
 	# Add the gravity.
 	if not is_on_floor():
-		if Jump_amount:
+		if Jump_amount and is_jumping:
 			if coyote_timer.is_stopped():
 				coyote_timer.start(Jumptime)
-			#Makes a timer connecting to the variable to the Function
-			
 		
 		velocity += get_gravity() * initialGravity * delta 
 	else:
 		Jump_amount = Jump_Max
+		is_jumping = false
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and Jump_amount > 0:
 		velocity.y = jump_velocity
 		Jump_amount += -1
+		is_jumping = true
 		coyote_timer.stop()
+
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -77,4 +79,3 @@ func _physics_process(delta: float) -> void:
 #Timer calls this function when its timed out
 func jumptimeout():
 	Jump_amount += -1
-	
