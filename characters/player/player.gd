@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and jump_amount > 0:
 		velocity.y = jump_velocity
-		jump_amount += -1
+		jump_amount -= 1
 		is_jumping = true
 		coyote_timer.stop()
 
@@ -84,4 +84,4 @@ func _input(event):
 
 #Timer calls this function when its timed out
 func jumptimeout():
-	jump_amount += -1
+	jump_amount -= 1
