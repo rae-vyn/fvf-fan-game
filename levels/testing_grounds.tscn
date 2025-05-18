@@ -22,7 +22,6 @@ uv1_triplanar = true
 [node name="TestingGrounds" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_1rui0")]
-initialGravity = 0.3
 
 [node name="env" type="Node3D" parent="."]
 
