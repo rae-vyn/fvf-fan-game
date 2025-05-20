@@ -15,6 +15,7 @@ var lerp_speed: float = 10.0
 var direction: Vector3 = Vector3.ZERO
 var current_speed: float = 5.0
 var crouching_depth = -0.5
+var Can_coyote:bool = true
 
 @onready var head: Node3D = $Head
 @onready var standing_cast: RayCast3D = $StandingCast
@@ -43,7 +44,7 @@ func _physics_process(delta: float) -> void:
 			current_speed = walking_speed
 	# Add the gravity.
 	if not is_on_floor():
-		if jump_amount and is_jumping:
+		if jump_amount and not is_jumping:
 			if coyote_timer.is_stopped():
 				coyote_timer.start(jumptime)
 
@@ -51,6 +52,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		jump_amount = jump_max
 		is_jumping = false
+		Can_coyote = true
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and jump_amount > 0:
@@ -84,4 +86,6 @@ func _input(event):
 
 #Timer calls this function when its timed out
 func jumptimeout():
-	jump_amount -= 1
+	if Can_coyote:
+		jump_amount -= 1
+	Can_coyote = false
