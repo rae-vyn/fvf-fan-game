@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://doy86y01irlyi"]
 
-[ext_resource type="Script" path="res://characters/player/player.gd" id="1_508ok"]
+[ext_resource type="Script" uid="uid://b5xqoe1mrpfhr" path="res://characters/player/player.gd" id="1_508ok"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xxgcw"]
 
@@ -12,7 +12,6 @@ height = 1.5
 [node name="Player" type="CharacterBody3D"]
 floor_max_angle = 1.0472
 script = ExtResource("1_508ok")
-Jump_Max = 2
 
 [node name="StandingShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

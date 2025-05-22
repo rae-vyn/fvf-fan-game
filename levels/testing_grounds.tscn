@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dj130xlamc31b"]
+[gd_scene load_steps=10 format=3 uid="uid://dj130xlamc31b"]
 
 [ext_resource type="PackedScene" uid="uid://doy86y01irlyi" path="res://characters/player/player.tscn" id="1_1rui0"]
 [ext_resource type="Texture2D" uid="uid://cy7j8iyx4kj6t" path="res://textures/panorama_image.png" id="2_hv7n2"]
 [ext_resource type="Texture2D" uid="uid://khkitpekrfaq" path="res://textures/prototyping/Dark/texture_01.png" id="3_0vgqf"]
 [ext_resource type="FontFile" uid="uid://cb6mn3fqqp1bf" path="res://fonts/Friendly Fire.ttf" id="4_7u2h7"]
+[ext_resource type="PackedScene" uid="uid://drh8lkwxigdod" path="res://ui/hud.tscn" id="5_8b5v7"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0vgqf"]
 panorama = ExtResource("2_hv7n2")
@@ -73,3 +74,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.296, 3.75176, 14.6036)
 use_collision = true
 size = Vector3(5, 1, 5)
 material = SubResource("StandardMaterial3D_7u2h7")
+
+[node name="Hud" parent="." instance=ExtResource("5_8b5v7")]
