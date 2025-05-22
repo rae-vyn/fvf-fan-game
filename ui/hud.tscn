@@ -15,6 +15,23 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 3
 
-[node name="TextureRect" type="TextureRect" parent="GridContainer"]
+[node name="CrosshairContainer" type="NinePatchRect" parent="GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Crosshair" type="TextureRect" parent="GridContainer/CrosshairContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 54.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_rbyyf")
