@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://drh8lkwxigdod"]
+
+[ext_resource type="Texture2D" uid="uid://bt0etix7bl3vi" path="res://textures/crosshairs/Outline/crosshair010.png" id="1_rbyyf"]
+
+[node name="Hud" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_rbyyf")
